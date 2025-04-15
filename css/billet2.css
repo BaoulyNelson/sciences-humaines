@@ -87,10 +87,6 @@ body {
     margin-left: 0.25rem;
 }
 
-.group:hover .group-hover\:-translate-x-0.5 {
-    transform: translateX(-0.125rem);
-}
-
 .transition-all {
     transition: all 0.2s ease-in-out;
 }
