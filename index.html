@@ -195,9 +195,75 @@
                 left: 0%;
             }
         }
+
+         /* En-tête du site */
+    .site-header {
+        background-color: #fff;
+        padding: 1rem 0;
+        border-bottom: 1px solid #e9ecef;
+      }
+      
+      .header-date {
+        font-size: 0.9rem;
+        color: #6c757d;
+      }
+      
+      .header-logo {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #1a237e;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-align: center;
+        margin: 0;
+        line-height: 1.2;
+      }
+      
+      .header-logo span {
+        color: #ff5722;
+      }
+      
+      .header-slogan {
+        font-size: 0.9rem;
+        color: #6c757d;
+        text-align: center;
+        font-style: italic;
+      }
+      
+      .header-search {
+        position: relative;
+      }
+      
+      .header-search input {
+        border-radius: 30px;
+        padding-left: 2.5rem;
+        border: 1px solid #e9ecef;
+      }
+      
+      .header-search i {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #6c757d;
+      }
     </style>
 </head>
 <body>
+<!-- En-tête du site réduit -->
+<div class="site-header d-none d-md-block py-2" style="background-color: #fff;">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-auto text-center" style="font-family: 'Georgia', serif;">
+          <h1 class="header-logo m-0" style="font-size: 1.5rem;">
+            UNIVERSITÉ D’ÉTAT D’<span style="color: #0057A6;">HA</span><span style="color: #D21034;">ÏTI</span>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
     <!-- Navbar -->
     <nav class="sticky top-0 z-50 bg-opacity-90 backdrop-filter backdrop-blur-sm" style="background-color: var(--bg-primary);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -258,12 +324,15 @@
     <section id="accueil" class="relative overflow-hidden">
         <div class="absolute inset-0 hero-pattern"></div>
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+           
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          
+                
                 <div class="animate-fade-in">
                     <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
                         <span class="block">Faculté des</span>
                         <span class="block text-primary-color">Sciences Humaines</span>
-                        <span class="block">d'Haïti</span>
+                        <span class="block">d'Haïti </span>
                     </h1>
                     <p class="text-lg md:text-xl max-w-lg mb-8">
                         Excellence académique, pensée critique et engagement social pour former les leaders de demain.
@@ -316,7 +385,7 @@
                     <div class="text-sm uppercase tracking-wider">Professeurs</div>
                 </div>
                 <div class="p-4">
-                    <div class="text-4xl font-bold mb-2">12</div>
+                    <div class="text-4xl font-bold mb-2">4</div>
                     <div class="text-sm uppercase tracking-wider">Départements</div>
                 </div>
             </div>
@@ -417,31 +486,17 @@
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold">Nos Programmes Académiques</h2>
                 <div class="w-24 h-1 bg-primary-color mx-auto mt-4 mb-6"></div>
-                <p class="max-w-2xl mx-auto text-lg">Explorez nos programmes de licence, maîtrise et doctorat dans divers domaines des sciences humaines et sociales.</p>
+                <p class="max-w-2xl mx-auto text-lg">Explorez nos programmes de licence, maîtrise et doctorat dans les domaines des sciences humaines et sociales.</p>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Sociologie -->
                 <div class="card p-6 rounded-lg shadow-md">
                     <div class="text-primary-color mb-4">
-                        <i class="fas fa-book text-3xl"></i>
+                        <i class="fas fa-users text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Sociologie</h3>
-                    <p class="mb-4">Étudier les structures sociales, les inégalités et les dynamiques culturelles dans le contexte haïtien et international.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Licence</span>
-                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Maîtrise</span>
-                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Doctorat</span>
-                    </div>
-                    <a href="#" class="text-primary-color font-medium hover:underline flex items-center">
-                        Détails du programme <i class="fas fa-arrow-right ml-1"></i>
-                    </a>
-                </div>
-                <div class="card p-6 rounded-lg shadow-md">
-                    <div class="text-primary-color mb-4">
-                        <i class="fas fa-landmark text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Histoire et Patrimoine</h3>
-                    <p class="mb-4">Explorer l'histoire d'Haïti et des Caraïbes, ainsi que la préservation et valorisation du patrimoine culturel.</p>
+                    <p class="mb-4">Étudier les structures sociales, les dynamiques culturelles et les enjeux sociétaux en Haïti et dans le monde.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
                         <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Licence</span>
                         <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Maîtrise</span>
@@ -450,41 +505,14 @@
                         Détails du programme <i class="fas fa-arrow-right ml-1"></i>
                     </a>
                 </div>
-                <div class="card p-6 rounded-lg shadow-md">
-                    <div class="text-primary-color mb-4">
-                        <i class="fas fa-comments text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Communication</h3>
-                    <p class="mb-4">Développer des compétences en communication médiatique, journalisme et relations publiques dans le contexte haïtien.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Licence</span>
-                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Maîtrise</span>
-                    </div>
-                    <a href="#" class="text-primary-color font-medium hover:underline flex items-center">
-                        Détails du programme <i class="fas fa-arrow-right ml-1"></i>
-                    </a>
-                </div>
-                <div class="card p-6 rounded-lg shadow-md">
-                    <div class="text-primary-color mb-4">
-                        <i class="fas fa-balance-scale text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Sciences Politiques</h3>
-                    <p class="mb-4">Analyser les institutions politiques, la gouvernance et les relations internationales avec une perspective haïtienne.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Licence</span>
-                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Maîtrise</span>
-                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Doctorat</span>
-                    </div>
-                    <a href="#" class="text-primary-color font-medium hover:underline flex items-center">
-                        Détails du programme <i class="fas fa-arrow-right ml-1"></i>
-                    </a>
-                </div>
+    
+                <!-- Psychologie -->
                 <div class="card p-6 rounded-lg shadow-md">
                     <div class="text-primary-color mb-4">
                         <i class="fas fa-brain text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Psychologie</h3>
-                    <p class="mb-4">Étudier le comportement humain et les processus mentaux, avec des applications cliniques et sociales adaptées au contexte haïtien.</p>
+                    <p class="mb-4">Comprendre les comportements humains et les processus mentaux à travers une approche théorique et appliquée.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
                         <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Licence</span>
                         <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Maîtrise</span>
@@ -493,22 +521,38 @@
                         Détails du programme <i class="fas fa-arrow-right ml-1"></i>
                     </a>
                 </div>
+    
+                <!-- Communication sociale -->
                 <div class="card p-6 rounded-lg shadow-md">
                     <div class="text-primary-color mb-4">
-                        <i class="fas fa-language text-3xl"></i>
+                        <i class="fas fa-comments text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Linguistique et Langues</h3>
-                    <p class="mb-4">Exploration du créole haïtien, du français et d'autres langues, avec une approche scientifique de la linguistique.</p>
+                    <h3 class="text-xl font-semibold mb-2">Communication Sociale</h3>
+                    <p class="mb-4">Former des professionnels capables d’analyser et d’intervenir dans les dynamiques de communication au sein de la société.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
                         <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Licence</span>
-                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Maîtrise</span>
+                    </div>
+                    <a href="#" class="text-primary-color font-medium hover:underline flex items-center">
+                        Détails du programme <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+    
+                <!-- Service Social -->
+                <div class="card p-6 rounded-lg shadow-md">
+                    <div class="text-primary-color mb-4">
+                        <i class="fas fa-hands-helping text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Service Social</h3>
+                    <p class="mb-4">Préparer les étudiants à accompagner les populations vulnérables et à intervenir dans les contextes de crise sociale.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Licence</span>
                     </div>
                     <a href="#" class="text-primary-color font-medium hover:underline flex items-center">
                         Détails du programme <i class="fas fa-arrow-right ml-1"></i>
                     </a>
                 </div>
             </div>
-            
+    
             <div class="mt-12 text-center">
                 <a href="#" class="btn-primary px-6 py-3 rounded-md shadow-md inline-flex items-center">
                     Voir tous les programmes <i class="fas fa-arrow-right ml-2"></i>
@@ -516,6 +560,7 @@
             </div>
         </div>
     </section>
+    
 
     <!-- Admissions Section -->
     <section id="admissions" class="py-16 md:py-24">
@@ -620,15 +665,22 @@
                             </div>
                             <div>
                                 <label class="block text-sm font-medium mb-1" for="program">Programme d'intérêt</label>
-                                <select id="program" class="w-full px-3 py-2 border rounded-md text-base" style="border-color: var(--border-color); background-color: var(--bg-primary); color: var(--text-primary);" required>
-                                    <option value="">Sélectionnez un programme</option>
-                                    <option value="sociologie-l">Sociologie (Licence)</option>
-                                    <option value="sociologie-m">Sociologie (Maîtrise)</option>
-                                    <option value="histoire-l">Histoire et Patrimoine (Licence)</option>
-                                    <option value="histoire-m">Histoire et Patrimoine (Maîtrise)</option>
-                                    <option value="communication-l">Communication (Licence)</option>
-                                    <option value="psychologie-l">Psychologie (Licence)</option>
-                                </select>
+                                <select id="program" class="w-full px-3 py-2 border rounded-md text-base" 
+                                style="border-color: var(--border-color); background-color: var(--bg-primary); color: var(--text-primary);" 
+                                required>
+                                <option value="">Sélectionnez un programme</option>
+                                
+                                <option value="sociologie-l">Sociologie (Licence)</option>
+                                <option value="sociologie-m">Sociologie (Maîtrise)</option>
+                                
+                                <option value="psychologie-l">Psychologie (Licence)</option>
+                                <option value="psychologie-m">Psychologie (Maîtrise)</option>
+                                
+                                <option value="communication-l">Communication Sociale (Licence)</option>
+                                
+                                <option value="servicesocial-l">Service Social (Licence)</option>
+                            </select>
+                            
                             </div>
                             <div>
                                 <label class="block text-sm font-medium mb-1" for="message">Message / Questions</label>
@@ -968,7 +1020,16 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-white">
                 <div>
                     <div class="flex items-center mb-4">
-                        <img class="h-10 w-auto" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgNjAiPjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik00MCAyMGMwIDExLjA0Ni04Ljk1NCAyMC0yMCAyMFYyMGgyMHoiPjwvcGF0aD48cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjAgMGMyMCAwIDIwIDIwIDQwIDIwczIwLTIwIDQwLTIwdjYwYy0yMCAwLTIwLTIwLTQwLTIwcy0yMCAyMC00MCAyMFYweiI+PC9wYXRoPjx0ZXh0IHg9IjEwMCIgeT0iMzUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI0ZGRkZGRiI+RlNIPC90ZXh0Pjwvc3ZnPg==" alt="FASCH Logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="220" height="60" viewBox="0 0 220 60">
+                            <text x="0" y="40" font-size="40" font-family="Arial, sans-serif" font-weight="bold">
+                              <tspan fill="#E63946">F</tspan>
+                              <tspan fill="#F1A208">A</tspan>
+                              <tspan fill="#2A9D8F">S</tspan>
+                              <tspan fill="#E63946">C</tspan> <!-- rouge -->
+                              <tspan fill="#8E44AD">H</tspan>
+                            </text>
+                          </svg>
+                          
                         <span class="ml-2 text-xl font-semibold">FASCH Haïti</span>
                     </div>
                     <p class="text-sm text-gray-300 mb-4">La Faculté des Sciences Humaines d'Haïti, une institution d'excellence dédiée à la formation et à la recherche en sciences humaines et sociales.</p>
@@ -990,11 +1051,10 @@
                     <h4 class="text-lg font-semibold mb-4">Départements</h4>
                     <ul class="space-y-2 text-sm text-gray-300">
                         <li><a href="#" class="hover:text-white">Sociologie</a></li>
-                        <li><a href="#" class="hover:text-white">Histoire et Patrimoine</a></li>
-                        <li><a href="#" class="hover:text-white">Communication</a></li>
-                        <li><a href="#" class="hover:text-white">Sciences Politiques</a></li>
                         <li><a href="#" class="hover:text-white">Psychologie</a></li>
-                        <li><a href="#" class="hover:text-white">Linguistique et Langues</a></li>
+                        <li><a href="#" class="hover:text-white">Communication</a></li>
+                        <li><a href="#" class="hover:text-white">Service Social</a></li>
+                      
                     </ul>
                 </div>
                 <div>
