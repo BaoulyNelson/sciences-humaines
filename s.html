@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr" class="">
+<head>
+  <meta charset="UTF-8">
+  <title>Dark Mode avec Tailwind 3</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-all duration-300">
+  <div class="p-6">
+    <h1 class="text-2xl font-bold mb-4">Mode Sombre avec Tailwind 3</h1>
+    <p class="mb-4">Clique sur le bouton pour changer le thème.</p>
+
+    <button id="mobile-theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-black dark:text-white">
+      <i class="fas fa-moon"></i>
+    </button>
+  </div>
+
+  <script>
+    const toggleDarkMode = () => {
+      const html = document.documentElement;
+      const btn = document.getElementById('mobile-theme-toggle');
+
+      html.classList.toggle('dark');
+
+      const isDark = html.classList.contains('dark');
+      btn.innerHTML = `<i class="fas fa-${isDark ? 'sun' : 'moon'}"></i>`;
+    };
+
+    document.getElementById('mobile-theme-toggle').addEventListener('click', toggleDarkMode);
+  </script>
+</body>
+</html>

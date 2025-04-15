@@ -7,247 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #5D5CDE;
-            --primary-dark: #4847b3;
-            --secondary: #3F3D56;
-            --accent: #FFC107;
-            --light: #F9FAFB;
-            --dark: #181818;
-            --gray-light: #E5E7EB;
-            --gray-dark: #374151;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        
-        .dark {
-            --bg-primary: var(--dark);
-            --text-primary: var(--light);
-            --border-color: #2D2D2D;
-            --card-bg: #222222;
-        }
-        
-        :not(.dark) {
-            --bg-primary: var(--light);
-            --text-primary: var(--secondary);
-            --border-color: var(--gray-light);
-            --card-bg: white;
-        }
-        
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-        }
-        
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            transition: background-color 0.3s;
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-        }
-        
-        .text-primary-color {
-            color: var(--primary);
-        }
-        
-        .bg-primary-color {
-            background-color: var(--primary);
-        }
-        
-        .hero-pattern {
-            background-image: radial-gradient(var(--primary) 0.5px, transparent 0.5px), radial-gradient(var(--primary) 0.5px, var(--bg-primary) 0.5px);
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
-            opacity: 0.1;
-        }
-        
-        .news-slider {
-            scroll-behavior: smooth;
-        }
-        
-        .animate-fade-in {
-            animation: fadeIn 0.8s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Navbar active link indicator */
-        .nav-link.active {
-            color: var(--primary);
-            font-weight: 600;
-            position: relative;
-        }
-        
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: var(--primary);
-            border-radius: 2px;
-        }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 5px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-dark);
-        }
-        
-        /* Timeline styles */
-        .timeline-container {
-            position: relative;
-        }
-        
-        .timeline-container::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            background-color: var(--primary);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -1px;
-        }
-        
-        .timeline-item {
-            position: relative;
-            width: 50%;
-            padding: 20px 40px;
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            background-color: var(--bg-primary);
-            border: 4px solid var(--primary);
-            border-radius: 50%;
-            top: 15px;
-            z-index: 1;
-        }
-        
-        .timeline-item.left {
-            left: 0;
-        }
-        
-        .timeline-item.right {
-            left: 50%;
-        }
-        
-        .timeline-item.right::after {
-            left: -10px;
-        }
-        
-        @media screen and (max-width: 768px) {
-            .timeline-container::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 80px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item.left::after, 
-            .timeline-item.right::after {
-                left: 21px;
-            }
-            
-            .timeline-item.right {
-                left: 0%;
-            }
-        }
-
-         /* En-tête du site */
-    .site-header {
-        background-color: #fff;
-        padding: 1rem 0;
-        border-bottom: 1px solid #e9ecef;
-      }
-      
-      .header-date {
-        font-size: 0.9rem;
-        color: #6c757d;
-      }
-      
-      .header-logo {
-        font-size: 2.5rem;
-        font-weight: 800;
-        color: #1a237e;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        text-align: center;
-        margin: 0;
-        line-height: 1.2;
-      }
-      
-      .header-logo span {
-        color: #ff5722;
-      }
-      
-      .header-slogan {
-        font-size: 0.9rem;
-        color: #6c757d;
-        text-align: center;
-        font-style: italic;
-      }
-      
-      .header-search {
-        position: relative;
-      }
-      
-      .header-search input {
-        border-radius: 30px;
-        padding-left: 2.5rem;
-        border: 1px solid #e9ecef;
-      }
-      
-      .header-search i {
-        position: absolute;
-        left: 1rem;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #6c757d;
-      }
-    </style>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <!-- En-tête du site réduit -->
@@ -255,13 +15,14 @@
     <div class="container">
       <div class="row justify-content-center align-items-center">
         <div class="col-auto text-center" style="font-family: 'Georgia', serif;">
-          <h1 class="header-logo m-0" style="font-size: 1.5rem;">
-            UNIVERSITÉ D’ÉTAT D’<span style="color: #0057A6;">HA</span><span style="color: #D21034;">ÏTI</span>
+          <h1 class="header-logo m-0" style="font-size: 1.8rem; color: #D21034;">
+            Université d’État d’<span style="text-decoration: underline; text-decoration-color: #0057A6;">Haïti</span>
           </h1>
         </div>
       </div>
     </div>
   </div>
+  
   
   
     <!-- Navbar -->
@@ -348,20 +109,10 @@
                 </div>
                 <div class="animate-fade-in hidden md:block">
                     <div class="relative h-96 w-full rounded-lg overflow-hidden shadow-2xl">
-                        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 500 500">
-                            <defs>
-                                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#5D5CDE;stop-opacity:0.8" />
-                                    <stop offset="100%" style="stop-color:#4847b3;stop-opacity:0.8" />
-                                </linearGradient>
-                            </defs>
-                            <rect width="100%" height="100%" fill="url(#grad1)" />
-                            <circle cx="250" cy="250" r="120" fill="rgba(255,255,255,0.1)" />
-                            <circle cx="250" cy="250" r="100" fill="rgba(255,255,255,0.1)" />
-                            <circle cx="250" cy="250" r="80" fill="rgba(255,255,255,0.1)" />
-                            <path d="M250,150 L250,350 M150,250 L350,250" stroke="rgba(255,255,255,0.2)" stroke-width="4" />
-                            <text x="180" y="260" fill="white" font-family="Arial" font-size="40" font-weight="bold">FASCH</text>
-                        </svg>
+                        <div class="absolute inset-0 w-full h-full">
+                            <img src="images/fasch.jpg" alt="Fond décoratif" class="w-full h-full object-cover" />
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -373,7 +124,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                 <div class="p-4">
-                    <div class="text-4xl font-bold mb-2">1957</div>
+                    <div class="text-4xl font-bold mb-2">1974</div>
                     <div class="text-sm uppercase tracking-wider">Année de fondation</div>
                 </div>
                 <div class="p-4">
@@ -838,76 +589,60 @@
         </div>
     </section>
 
-    <!-- News Section -->
-    <section id="actualites" class="py-16 md:py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold">Actualités et Événements</h2>
-                <div class="w-24 h-1 bg-primary-color mx-auto mt-4 mb-6"></div>
-                <p class="max-w-2xl mx-auto text-lg">Restez informé des dernières nouvelles, événements et activités de notre faculté.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card rounded-lg shadow-md overflow-hidden">
-                    <div class="relative h-48 bg-primary-color bg-opacity-20">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-calendar-alt text-primary-color text-5xl"></i>
-                        </div>
-                        <div class="absolute top-4 left-4 bg-primary-color text-white px-3 py-1 rounded-md text-sm font-medium">
-                            15 Sep 2025
-                        </div>
+<!-- News Section -->
+<section id="actualites" class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold">Actualités et Événements</h2>
+            <div class="w-24 h-1 bg-primary-color mx-auto mt-4 mb-6"></div>
+            <p class="max-w-2xl mx-auto text-lg">Restez informé des dernières nouvelles, événements et activités de notre faculté.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="card rounded-lg shadow-md overflow-hidden">
+                <div class="relative h-48 bg-primary-color bg-opacity-20">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fas fa-birthday-cake text-primary-color text-5xl"></i>
                     </div>
-                    <div class="p-5">
-                        <h3 class="text-xl font-semibold mb-2">Rentrée académique 2025-2024</h3>
-                        <p class="text-sm mb-4">La Faculté des Sciences Humaines d'Haïti accueille ses nouveaux étudiants pour la rentrée académique 2025-2024. Une cérémonie d'ouverture est prévue au grand amphithéâtre.</p>
-                        <a href="#" class="text-primary-color font-medium hover:underline flex items-center text-sm">
-                            Lire la suite <i class="fas fa-arrow-right ml-1"></i>
-                        </a>
+                    <div class="absolute top-4 left-4 bg-primary-color text-white px-3 py-1 rounded-md text-sm font-medium">
+                        19 Juin 2024
                     </div>
                 </div>
-                <div class="card rounded-lg shadow-md overflow-hidden">
-                    <div class="relative h-48 bg-primary-color bg-opacity-20">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-microphone-alt text-primary-color text-5xl"></i>
-                        </div>
-                        <div class="absolute top-4 left-4 bg-primary-color text-white px-3 py-1 rounded-md text-sm font-medium">
-                            10 Oct 2025
-                        </div>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-xl font-semibold mb-2">Colloque international sur les droits humains</h3>
-                        <p class="text-sm mb-4">La FASCH organise un colloque international sur "Les droits humains dans les Caraïbes contemporaines" avec des intervenants de renommée internationale.</p>
-                        <a href="#" class="text-primary-color font-medium hover:underline flex items-center text-sm">
-                            Lire la suite <i class="fas fa-arrow-right ml-1"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="card rounded-lg shadow-md overflow-hidden">
-                    <div class="relative h-48 bg-primary-color bg-opacity-20">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-book-open text-primary-color text-5xl"></i>
-                        </div>
-                        <div class="absolute top-4 left-4 bg-primary-color text-white px-3 py-1 rounded-md text-sm font-medium">
-                            25 Nov 2025
-                        </div>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-xl font-semibold mb-2">Lancement de la revue académique de la FASCH</h3>
-                        <p class="text-sm mb-4">Nous sommes heureux d'annoncer le lancement de "Perspectives Haïtiennes", la nouvelle revue académique de la Faculté des Sciences Humaines.</p>
-                        <a href="#" class="text-primary-color font-medium hover:underline flex items-center text-sm">
-                            Lire la suite <i class="fas fa-arrow-right ml-1"></i>
-                        </a>
-                    </div>
+                <div class="p-5">
+                    <h3 class="text-xl font-semibold mb-2">Billet #1 - 50 ans de la FASCH</h3>
+                    <p class="text-sm mb-4">La FASCH célèbre 50 années de formation, de recherche et d'engagement social. Un hommage vibrant aux membres, partenaires et anciens qui ont marqué son histoire.</p>
+                    <a href="billet-1.html" class="text-primary-color font-medium hover:underline flex items-center text-sm">
+                        Lire la suite <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
                 </div>
             </div>
-            
-            <div class="mt-12 text-center">
-                <a href="#" class="btn-primary px-6 py-3 rounded-md shadow-md inline-flex items-center">
-                    Voir toutes les actualités <i class="fas fa-arrow-right ml-2"></i>
-                </a>
+            <div class="card rounded-lg shadow-md overflow-hidden">
+                <div class="relative h-48 bg-primary-color bg-opacity-20">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fas fa-pen-fancy text-primary-color text-5xl"></i>
+                    </div>
+                    <div class="absolute top-4 left-4 bg-primary-color text-white px-3 py-1 rounded-md text-sm font-medium">
+                        19 Juil 2024
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-xl font-semibold mb-2">Billet #2 - Parcours historique de la FASCH</h3>
+                    <p class="text-sm mb-4">Retour sur les grandes étapes de la FASCH : ses débuts en 1974, ses pionniers, ses réformes et son rayonnement national et international.</p>
+                    <a href="billet-2.html" class="text-primary-color font-medium hover:underline flex items-center text-sm">
+                        Lire la suite <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
             </div>
         </div>
-    </section>
+
+        <div class="mt-12 text-center">
+            <a href="#" class="btn-primary px-6 py-3 rounded-md shadow-md inline-flex items-center">
+                Voir toutes les actualités <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="py-16 md:py-24 bg-primary-color text-white">
@@ -975,7 +710,7 @@
                                     <i class="fas fa-envelope"></i>
                                 </div>
                                 <div class="ml-3">
-                                    <p>info@FASCH.edu.ht</p>
+                                    <p>info@fasch.edu.ht</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
@@ -1075,132 +810,7 @@
         </div>
     </footer>
 
-    <script>
-        // Check for dark mode preference
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.classList.add('dark');
-            document.getElementById('theme-toggle').innerHTML = '<i class="fas fa-sun"></i>';
-            document.getElementById('mobile-theme-toggle').innerHTML = '<i class="fas fa-sun"></i>';
-        }
-        
-        // Dark mode toggle
-        function toggleDarkMode() {
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                document.getElementById('theme-toggle').innerHTML = '<i class="fas fa-moon"></i>';
-                document.getElementById('mobile-theme-toggle').innerHTML = '<i class="fas fa-moon"></i>';
-            } else {
-                document.documentElement.classList.add('dark');
-                document.getElementById('theme-toggle').innerHTML = '<i class="fas fa-sun"></i>';
-                document.getElementById('mobile-theme-toggle').innerHTML = '<i class="fas fa-sun"></i>';
-            }
-        }
-        
-        document.getElementById('theme-toggle').addEventListener('click', toggleDarkMode);
-        document.getElementById('mobile-theme-toggle').addEventListener('click', toggleDarkMode);
-        
-        // Listen for dark mode changes at the system level
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-            if (event.matches) {
-                document.documentElement.classList.add('dark');
-                document.getElementById('theme-toggle').innerHTML = '<i class="fas fa-sun"></i>';
-                document.getElementById('mobile-theme-toggle').innerHTML = '<i class="fas fa-sun"></i>';
-            } else {
-                document.documentElement.classList.remove('dark');
-                document.getElementById('theme-toggle').innerHTML = '<i class="fas fa-moon"></i>';
-                document.getElementById('mobile-theme-toggle').innerHTML = '<i class="fas fa-moon"></i>';
-            }
-        });
-        
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                // Close mobile menu if open
-                document.getElementById('mobile-menu').classList.add('hidden');
-                
-                // Scroll to target
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                
-                // Update active link
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.classList.remove('active');
-                });
-                document.querySelectorAll('.mobile-nav-link').forEach(link => {
-                    link.classList.remove('font-bold');
-                });
-                
-                if (this.classList.contains('nav-link')) {
-                    this.classList.add('active');
-                } else if (this.classList.contains('mobile-nav-link')) {
-                    this.classList.add('font-bold');
-                }
-            });
-        });
-        
-        // Update active link on scroll
-        window.addEventListener('scroll', function() {
-            let current = '';
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-            
-            mobileNavLinks.forEach(link => {
-                link.classList.remove('font-bold');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('font-bold');
-                }
-            });
-        });
-        
-        // Form submissions
-        document.querySelectorAll('form').forEach(form => {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Cette fonctionnalité serait connectée à un backend dans un site réel. Merci de votre intérêt !');
-                form.reset();
-            });
-        });
-        
-        // Animate elements on scroll
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.card, h2, h3, p');
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2;
-                
-                if (elementPosition < screenPosition) {
-                    element.classList.add('animate-fade-in');
-                }
-            });
-        };
-        
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
-    </script>
+    
+   <script src="js/scripts.js"></script>
 </body>
 </html>
