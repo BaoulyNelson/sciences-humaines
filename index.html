@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculté des Sciences Humaines d'Haïti</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5D5CDE;
+            --primary-dark: #4847b3;
+            --secondary: #3F3D56;
+            --accent: #FFC107;
+            --light: #F9FAFB;
+            --dark: #181818;
+            --gray-light: #E5E7EB;
+            --gray-dark: #374151;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .dark {
+            --bg-primary: var(--dark);
+            --text-primary: var(--light);
+            --border-color: #2D2D2D;
+            --card-bg: #222222;
+        }
+        
+        :not(.dark) {
+            --bg-primary: var(--light);
+            --text-primary: var(--secondary);
+            --border-color: var(--gray-light);
+            --card-bg: white;
+        }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .text-primary-color {
+            color: var(--primary);
+        }
+        
+        .bg-primary-color {
+            background-color: var(--primary);
+        }
+        
+        .hero-pattern {
+            background-image: radial-gradient(var(--primary) 0.5px, transparent 0.5px), radial-gradient(var(--primary) 0.5px, var(--bg-primary) 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.1;
+        }
+        
+        .news-slider {
+            scroll-behavior: smooth;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Navbar active link indicator */
+        .nav-link.active {
+            color: var(--primary);
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* Timeline styles */
+        .timeline-container {
+            position: relative;
+        }
+        
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--bg-primary);
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .timeline-item.left {
+            left: 0;
+        }
+        
+        .timeline-item.right {
+            left: 50%;
+        }
+        
+        .timeline-item.right::after {
+            left: -10px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline-container::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 80px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item.left::after, 
+            .timeline-item.right::after {
+                left: 21px;
+            }
+            
+            .timeline-item.right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-opacity-90 backdrop-filter backdrop-blur-sm" style="background-color: var(--bg-primary);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="220" height="60" viewBox="0 0 220 60">
+                            <text x="0" y="40" font-size="40" font-family="Arial, sans-serif" font-weight="bold">
+                              <tspan fill="#E63946">F</tspan>
+                              <tspan fill="#F1A208">A</tspan>
+                              <tspan fill="#2A9D8F">S</tspan>
+                              <tspan fill="#264653">C</tspan>
+                              <tspan fill="#8E44AD">H</tspan>
+                            </text>
+                          </svg>
+                          
+                        
+                    </div>
+                </div>
+                <div class="hidden md:flex md:items-center md:space-x-8">
+                    <a href="#accueil" class="nav-link active px-2 py-1 text-sm font-medium rounded-md">Accueil</a>
+                    <a href="#a-propos" class="nav-link px-2 py-1 text-sm font-medium rounded-md">Qui?</a>
+                    <a href="#programmes" class="nav-link px-2 py-1 text-sm font-medium rounded-md">Programmes</a>
+                    <a href="#admissions" class="nav-link px-2 py-1 text-sm font-medium rounded-md">Admissions</a>
+                    <a href="#recherche" class="nav-link px-2 py-1 text-sm font-medium rounded-md">Recherche</a>
+                    <a href="#actualites" class="nav-link px-2 py-1 text-sm font-medium rounded-md">Actualités</a>
+                    <a href="#contact" class="nav-link px-2 py-1 text-sm font-medium rounded-md">Contact</a>
+                    <button id="theme-toggle" class="p-2 rounded-full focus:outline-none">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-toggle" class="p-2 rounded-md focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    <button id="mobile-theme-toggle" class="p-2 ml-2 rounded-full focus:outline-none">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden" style="background-color: var(--bg-primary);">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#accueil" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Accueil</a>
+                <a href="#a-propos" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">À propos</a>
+                <a href="#programmes" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Programmes</a>
+                <a href="#admissions" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Admissions</a>
+                <a href="#recherche" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Recherche</a>
+                <a href="#actualites" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Actualités</a>
+                <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="relative overflow-hidden">
+        <div class="absolute inset-0 hero-pattern"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="animate-fade-in">
+                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+                        <span class="block">Faculté des</span>
+                        <span class="block text-primary-color">Sciences Humaines</span>
+                        <span class="block">d'Haïti</span>
+                    </h1>
+                    <p class="text-lg md:text-xl max-w-lg mb-8">
+                        Excellence académique, pensée critique et engagement social pour former les leaders de demain.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#programmes" class="btn-primary px-5 py-3 text-base font-medium rounded-md shadow-md">
+                            Nos Programmes
+                        </a>
+                        <a href="#contact" class="px-5 py-3 border border-gray-300 text-base font-medium rounded-md shadow-md" style="border-color: var(--primary); color: var(--primary);">
+                            Nous Contacter
+                        </a>
+                    </div>
+                </div>
+                <div class="animate-fade-in hidden md:block">
+                    <div class="relative h-96 w-full rounded-lg overflow-hidden shadow-2xl">
+                        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 500 500">
+                            <defs>
+                                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#5D5CDE;stop-opacity:0.8" />
+                                    <stop offset="100%" style="stop-color:#4847b3;stop-opacity:0.8" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="100%" height="100%" fill="url(#grad1)" />
+                            <circle cx="250" cy="250" r="120" fill="rgba(255,255,255,0.1)" />
+                            <circle cx="250" cy="250" r="100" fill="rgba(255,255,255,0.1)" />
+                            <circle cx="250" cy="250" r="80" fill="rgba(255,255,255,0.1)" />
+                            <path d="M250,150 L250,350 M150,250 L350,250" stroke="rgba(255,255,255,0.2)" stroke-width="4" />
+                            <text x="180" y="260" fill="white" font-family="Arial" font-size="40" font-weight="bold">FASCH</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Stats -->
+    <section class="py-12 bg-primary-color text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div class="p-4">
+                    <div class="text-4xl font-bold mb-2">1957</div>
+                    <div class="text-sm uppercase tracking-wider">Année de fondation</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl font-bold mb-2">2000+</div>
+                    <div class="text-sm uppercase tracking-wider">Étudiants</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl font-bold mb-2">150+</div>
+                    <div class="text-sm uppercase tracking-wider">Professeurs</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl font-bold mb-2">12</div>
+                    <div class="text-sm uppercase tracking-wider">Départements</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="a-propos" class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold">À propos de la faculté</h2>
+                <div class="w-24 h-1 bg-primary-color mx-auto mt-4 mb-6"></div>
+                <p class="max-w-2xl mx-auto text-lg">Découvrez notre histoire, notre mission et notre vision pour l'avenir de l'enseignement supérieur en Haïti.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Notre Histoire</h3>
+                    <p class="mb-4">Fondée en 1957, la Faculté des Sciences Humaines d'Haïti (FASCH) est l'une des institutions académiques les plus respectées du pays. Elle a joué un rôle crucial dans la formation des intellectuels, chercheurs et leaders qui ont contribué au développement social et culturel d'Haïti.</p>
+                    <p>À travers les décennies, la FASCH a maintenu son engagement envers l'excellence académique tout en s'adaptant aux défis contemporains. Notre faculté a survécu à des périodes difficiles de l'histoire haïtienne, démontrant sa résilience et son importance pour le tissu éducatif national.</p>
+                </div>
+                <div class="timeline-container h-96 overflow-y-auto pr-4">
+                    <div class="timeline-item left">
+                        <div class="card p-4 rounded-lg shadow-md">
+                            <h4 class="font-bold">1957</h4>
+                            <p>Fondation de la Faculté des Sciences Humaines d'Haïti</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="card p-4 rounded-lg shadow-md">
+                            <h4 class="font-bold">1972</h4>
+                            <p>Création des premiers programmes de maîtrise</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="card p-4 rounded-lg shadow-md">
+                            <h4 class="font-bold">1986</h4>
+                            <p>Restructuration majeure de la faculté</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="card p-4 rounded-lg shadow-md">
+                            <h4 class="font-bold">2004</h4>
+                            <p>Ouverture du Centre de Recherche en Sciences Sociales</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="card p-4 rounded-lg shadow-md">
+                            <h4 class="font-bold">2010</h4>
+                            <p>Reconstruction après le séisme</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="card p-4 rounded-lg shadow-md">
+                            <h4 class="font-bold">2020</h4>
+                            <p>Lancement des programmes d'enseignement à distance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card p-6 rounded-lg shadow-lg">
+                    <div class="w-12 h-12 bg-primary-color rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-bullseye text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Notre Mission</h3>
+                    <p>Former des citoyens engagés et des professionnels compétents, capables d'analyser les complexités du monde contemporain et de contribuer au développement durable d'Haïti, en offrant une éducation de qualité fondée sur la recherche et l'innovation.</p>
+                </div>
+                <div class="card p-6 rounded-lg shadow-lg">
+                    <div class="w-12 h-12 bg-primary-color rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-eye text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Notre Vision</h3>
+                    <p>Devenir un centre d'excellence académique reconnu internationalement dans le domaine des sciences humaines, qui inspire et prépare les futures générations à relever les défis sociaux, culturels et économiques d'Haïti et du monde.</p>
+                </div>
+                <div class="card p-6 rounded-lg shadow-lg">
+                    <div class="w-12 h-12 bg-primary-color rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-gem text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Nos Valeurs</h3>
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li>Excellence académique</li>
+                        <li>Intégrité et éthique</li>
+                        <li>Pensée critique</li>
+                        <li>Diversité et inclusion</li>
+                        <li>Engagement social</li>
+                        <li>Innovation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programmes" class="py-16 md:py-24" style="background-color: rgba(93, 92, 222, 0.05);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold">Nos Programmes Académiques</h2>
+                <div class="w-24 h-1 bg-primary-color mx-auto mt-4 mb-6"></div>
+                <p class="max-w-2xl mx-auto text-lg">Explorez nos programmes de licence, maîtrise et doctorat dans divers domaines des sciences humaines et sociales.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card p-6 rounded-lg shadow-md">
+                    <div class="text-primary-color mb-4">
+                        <i class="fas fa-book text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Sociologie</h3>
+                    <p class="mb-4">Étudier les structures sociales, les inégalités et les dynamiques culturelles dans le contexte haïtien et international.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Licence</span>
+                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Maîtrise</span>
+                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Doctorat</span>
+                    </div>
+                    <a href="#" class="text-primary-color font-medium hover:underline flex items-center">
+                        Détails du programme <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                <div class="card p-6 rounded-lg shadow-md">
+                    <div class="text-primary-color mb-4">
+                        <i class="fas fa-landmark text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Histoire et Patrimoine</h3>
+                    <p class="mb-4">Explorer l'histoire d'Haïti et des Caraïbes, ainsi que la préservation et valorisation du patrimoine culturel.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Licence</span>
+                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Maîtrise</span>
+                    </div>
+                    <a href="#" class="text-primary-color font-medium hover:underline flex items-center">
+                        Détails du programme <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                <div class="card p-6 rounded-lg shadow-md">
+                    <div class="text-primary-color mb-4">
+                        <i class="fas fa-comments text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Communication</h3>
+                    <p class="mb-4">Développer des compétences en communication médiatique, journalisme et relations publiques dans le contexte haïtien.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Licence</span>
+                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Maîtrise</span>
+                    </div>
+                    <a href="#" class="text-primary-color font-medium hover:underline flex items-center">
+                        Détails du programme <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                <div class="card p-6 rounded-lg shadow-md">
+                    <div class="text-primary-color mb-4">
+                        <i class="fas fa-balance-scale text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Sciences Politiques</h3>
+                    <p class="mb-4">Analyser les institutions politiques, la gouvernance et les relations internationales avec une perspective haïtienne.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Licence</span>
+                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Maîtrise</span>
+                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Doctorat</span>
+                    </div>
+                    <a href="#" class="text-primary-color font-medium hover:underline flex items-center">
+                        Détails du programme <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                <div class="card p-6 rounded-lg shadow-md">
+                    <div class="text-primary-color mb-4">
+                        <i class="fas fa-brain text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Psychologie</h3>
+                    <p class="mb-4">Étudier le comportement humain et les processus mentaux, avec des applications cliniques et sociales adaptées au contexte haïtien.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Licence</span>
+                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Maîtrise</span>
+                    </div>
+                    <a href="#" class="text-primary-color font-medium hover:underline flex items-center">
+                        Détails du programme <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                <div class="card p-6 rounded-lg shadow-md">
+                    <div class="text-primary-color mb-4">
+                        <i class="fas fa-language text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Linguistique et Langues</h3>
+                    <p class="mb-4">Exploration du créole haïtien, du français et d'autres langues, avec une approche scientifique de la linguistique.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Licence</span>
+                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Maîtrise</span>
+                    </div>
+                    <a href="#" class="text-primary-color font-medium hover:underline flex items-center">
+                        Détails du programme <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#" class="btn-primary px-6 py-3 rounded-md shadow-md inline-flex items-center">
+                    Voir tous les programmes <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions Section -->
+    <section id="admissions" class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold">Admissions</h2>
+                <div class="w-24 h-1 bg-primary-color mx-auto mt-4 mb-6"></div>
+                <p class="max-w-2xl mx-auto text-lg">Informations sur le processus d'admission, les conditions d'entrée et les démarches à suivre pour rejoindre notre faculté.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                    <div class="card p-6 rounded-lg shadow-md mb-8">
+                        <h3 class="text-xl font-semibold mb-4">Calendrier d'admission</h3>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y" style="border-color: var(--border-color);">
+                                <thead>
+                                    <tr>
+                                        <th class="px-4 py-3 text-left text-sm font-medium">Étape</th>
+                                        <th class="px-4 py-3 text-left text-sm font-medium">Date de début</th>
+                                        <th class="px-4 py-3 text-left text-sm font-medium">Date limite</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y" style="border-color: var(--border-color);">
+                                    <tr>
+                                        <td class="px-4 py-3 text-sm">Ouverture des inscriptions</td>
+                                        <td class="px-4 py-3 text-sm">1 Mars 2025</td>
+                                        <td class="px-4 py-3 text-sm">-</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3 text-sm">Date limite pour les dossiers</td>
+                                        <td class="px-4 py-3 text-sm">-</td>
+                                        <td class="px-4 py-3 text-sm">31 Mai 2025</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3 text-sm">Examens d'admission</td>
+                                        <td class="px-4 py-3 text-sm">15 Juin 2025</td>
+                                        <td class="px-4 py-3 text-sm">20 Juin 2025</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3 text-sm">Annonce des résultats</td>
+                                        <td class="px-4 py-3 text-sm">15 Juillet 2025</td>
+                                        <td class="px-4 py-3 text-sm">-</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3 text-sm">Inscription administrative</td>
+                                        <td class="px-4 py-3 text-sm">1 Août 2025</td>
+                                        <td class="px-4 py-3 text-sm">31 Août 2025</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3 text-sm">Rentrée académique</td>
+                                        <td class="px-4 py-3 text-sm">15 Septembre 2025</td>
+                                        <td class="px-4 py-3 text-sm">-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-4">Conditions d'admission</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-medium text-lg mb-2">Licence (Bachelor)</h4>
+                                <ul class="space-y-2 pl-5 list-disc">
+                                    <li>Baccalauréat ou équivalent</li>
+                                    <li>Dossier académique</li>
+                                    <li>Lettre de motivation</li>
+                                    <li>Examen d'entrée selon le département</li>
+                                    <li>Entretien pour certains programmes</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-lg mb-2">Maîtrise (Master)</h4>
+                                <ul class="space-y-2 pl-5 list-disc">
+                                    <li>Licence dans un domaine pertinent</li>
+                                    <li>Dossier académique avec moyenne minimale</li>
+                                    <li>Lettre de motivation et projet de recherche</li>
+                                    <li>Deux lettres de recommandation</li>
+                                    <li>Entretien avec le comité d'admission</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="card p-6 rounded-lg shadow-md sticky top-24">
+                        <h3 class="text-xl font-semibold mb-4">Commencer votre candidature</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-1" for="name">Nom complet</label>
+                                <input type="text" id="name" class="w-full px-3 py-2 border rounded-md text-base" style="border-color: var(--border-color); background-color: var(--bg-primary); color: var(--text-primary);" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1" for="email">Email</label>
+                                <input type="email" id="email" class="w-full px-3 py-2 border rounded-md text-base" style="border-color: var(--border-color); background-color: var(--bg-primary); color: var(--text-primary);" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1" for="phone">Téléphone</label>
+                                <input type="tel" id="phone" class="w-full px-3 py-2 border rounded-md text-base" style="border-color: var(--border-color); background-color: var(--bg-primary); color: var(--text-primary);" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1" for="program">Programme d'intérêt</label>
+                                <select id="program" class="w-full px-3 py-2 border rounded-md text-base" style="border-color: var(--border-color); background-color: var(--bg-primary); color: var(--text-primary);" required>
+                                    <option value="">Sélectionnez un programme</option>
+                                    <option value="sociologie-l">Sociologie (Licence)</option>
+                                    <option value="sociologie-m">Sociologie (Maîtrise)</option>
+                                    <option value="histoire-l">Histoire et Patrimoine (Licence)</option>
+                                    <option value="histoire-m">Histoire et Patrimoine (Maîtrise)</option>
+                                    <option value="communication-l">Communication (Licence)</option>
+                                    <option value="psychologie-l">Psychologie (Licence)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1" for="message">Message / Questions</label>
+                                <textarea id="message" rows="3" class="w-full px-3 py-2 border rounded-md text-base" style="border-color: var(--border-color); background-color: var(--bg-primary); color: var(--text-primary);"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn-primary w-full py-3 rounded-md shadow-md">
+                                    Soumettre ma demande d'information
+                                </button>
+                            </div>
+                        </form>
+                        <div class="mt-4 text-center">
+                            <a href="#" class="text-primary-color text-sm hover:underline">
+                                <i class="fas fa-file-download mr-1"></i> Télécharger le guide d'admission complet
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="recherche" class="py-16 md:py-24" style="background-color: rgba(93, 92, 222, 0.05);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold">Centre de Recherche</h2>
+                <div class="w-24 h-1 bg-primary-color mx-auto mt-4 mb-6"></div>
+                <p class="max-w-2xl mx-auto text-lg">Nos activités de recherche contribuent à l'avancement des connaissances dans les domaines critiques pour Haïti et la région caribéenne.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-1">
+                    <div class="card p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-4">Nos Axes de Recherche</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-primary-color mt-1">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="font-medium">Développement durable et résilience</h4>
+                                    <p class="text-sm mt-1">Études sur l'adaptation aux changements climatiques et les stratégies de développement durable pour Haïti.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-primary-color mt-1">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="font-medium">Patrimoine culturel et identité</h4>
+                                    <p class="text-sm mt-1">Recherches sur le patrimoine matériel et immatériel d'Haïti, et son rôle dans la construction identitaire.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-primary-color mt-1">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="font-medium">Gouvernance et politique</h4>
+                                    <p class="text-sm mt-1">Analyse des institutions démocratiques et des politiques publiques dans le contexte haïtien.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-primary-color mt-1">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="font-medium">Linguistique et éducation</h4>
+                                    <p class="text-sm mt-1">Études sur le créole haïtien et les pratiques pédagogiques adaptées au multilinguisme.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-primary-color mt-1">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="font-medium">Migrations et diaspora</h4>
+                                    <p class="text-sm mt-1">Recherches sur les flux migratoires, les communautés diasporiques et leur impact sur Haïti.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-2">
+                    <h3 class="text-xl font-semibold mb-4">Publications Récentes</h3>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="card p-4 rounded-lg shadow-md">
+                            <div class="flex flex-col md:flex-row gap-4">
+                                <div class="flex-grow">
+                                    <h4 class="font-medium">L'évolution du créole haïtien dans les médias numériques : nouvelles pratiques et innovations linguistiques</h4>
+                                    <p class="text-sm mt-1">Par Dr. Marie-Josée Pierre et Dr. Jean-Robert Cadely</p>
+                                    <p class="text-sm mt-2">Cette étude examine comment les médias sociaux et les plateformes numériques influencent l'évolution du créole haïtien, notamment par l'introduction de nouveaux termes et pratiques linguistiques.</p>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Linguistique</span>
+                                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Médias</span>
+                                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">2025</span>
+                                    </div>
+                                </div>
+                                <div class="flex-shrink-0 flex items-center justify-center">
+                                    <a href="#" class="text-primary-color hover:underline flex items-center text-sm">
+                                        Accéder <i class="fas fa-external-link-alt ml-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card p-4 rounded-lg shadow-md">
+                            <div class="flex flex-col md:flex-row gap-4">
+                                <div class="flex-grow">
+                                    <h4 class="font-medium">Mémoire collective et traumatisme : représentations du séisme de 2010 dans l'art contemporain haïtien</h4>
+                                    <p class="text-sm mt-1">Par Dr. Philippe Saint-Louis</p>
+                                    <p class="text-sm mt-2">Cette recherche analyse comment les artistes haïtiens ont intégré et représenté le traumatisme collectif du séisme de 2010 dans leurs œuvres, contribuant ainsi à la construction d'une mémoire collective.</p>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Art</span>
+                                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Psychologie</span>
+                                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">2022</span>
+                                    </div>
+                                </div>
+                                <div class="flex-shrink-0 flex items-center justify-center">
+                                    <a href="#" class="text-primary-color hover:underline flex items-center text-sm">
+                                        Accéder <i class="fas fa-external-link-alt ml-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card p-4 rounded-lg shadow-md">
+                            <div class="flex flex-col md:flex-row gap-4">
+                                <div class="flex-grow">
+                                    <h4 class="font-medium">Gouvernance locale et participation citoyenne dans les zones rurales d'Haïti</h4>
+                                    <p class="text-sm mt-1">Par Dr. Claudette Werleigh et Dr. Robert Fatton</p>
+                                    <p class="text-sm mt-2">Cette étude examine les mécanismes de gouvernance locale dans les communautés rurales d'Haïti et évalue les niveaux de participation citoyenne dans les processus décisionnels.</p>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Sciences Politiques</span>
+                                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">Gouvernance</span>
+                                        <span class="px-2 py-1 text-xs rounded-full bg-opacity-20 bg-primary-color text-primary-color">2022</span>
+                                    </div>
+                                </div>
+                                <div class="flex-shrink-0 flex items-center justify-center">
+                                    <a href="#" class="text-primary-color hover:underline flex items-center text-sm">
+                                        Accéder <i class="fas fa-external-link-alt ml-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 flex justify-center">
+                        <a href="#" class="btn-primary px-5 py-2 rounded-md shadow-md inline-flex items-center">
+                            Toutes les publications <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="actualites" class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold">Actualités et Événements</h2>
+                <div class="w-24 h-1 bg-primary-color mx-auto mt-4 mb-6"></div>
+                <p class="max-w-2xl mx-auto text-lg">Restez informé des dernières nouvelles, événements et activités de notre faculté.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card rounded-lg shadow-md overflow-hidden">
+                    <div class="relative h-48 bg-primary-color bg-opacity-20">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-calendar-alt text-primary-color text-5xl"></i>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-primary-color text-white px-3 py-1 rounded-md text-sm font-medium">
+                            15 Sep 2025
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Rentrée académique 2025-2024</h3>
+                        <p class="text-sm mb-4">La Faculté des Sciences Humaines d'Haïti accueille ses nouveaux étudiants pour la rentrée académique 2025-2024. Une cérémonie d'ouverture est prévue au grand amphithéâtre.</p>
+                        <a href="#" class="text-primary-color font-medium hover:underline flex items-center text-sm">
+                            Lire la suite <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card rounded-lg shadow-md overflow-hidden">
+                    <div class="relative h-48 bg-primary-color bg-opacity-20">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-microphone-alt text-primary-color text-5xl"></i>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-primary-color text-white px-3 py-1 rounded-md text-sm font-medium">
+                            10 Oct 2025
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Colloque international sur les droits humains</h3>
+                        <p class="text-sm mb-4">La FASCH organise un colloque international sur "Les droits humains dans les Caraïbes contemporaines" avec des intervenants de renommée internationale.</p>
+                        <a href="#" class="text-primary-color font-medium hover:underline flex items-center text-sm">
+                            Lire la suite <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card rounded-lg shadow-md overflow-hidden">
+                    <div class="relative h-48 bg-primary-color bg-opacity-20">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-book-open text-primary-color text-5xl"></i>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-primary-color text-white px-3 py-1 rounded-md text-sm font-medium">
+                            25 Nov 2025
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Lancement de la revue académique de la FASCH</h3>
+                        <p class="text-sm mb-4">Nous sommes heureux d'annoncer le lancement de "Perspectives Haïtiennes", la nouvelle revue académique de la Faculté des Sciences Humaines.</p>
+                        <a href="#" class="text-primary-color font-medium hover:underline flex items-center text-sm">
+                            Lire la suite <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#" class="btn-primary px-6 py-3 rounded-md shadow-md inline-flex items-center">
+                    Voir toutes les actualités <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-primary-color text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold">Contactez-nous</h2>
+                <div class="w-24 h-1 bg-white mx-auto mt-4 mb-6"></div>
+                <p class="max-w-2xl mx-auto text-lg">Vous avez des questions ? N'hésitez pas à nous contacter. Notre équipe est à votre disposition.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <div class="card p-6 rounded-lg shadow-lg text-gray-800 dark:text-white" style="background-color: var(--card-bg); color: var(--text-primary);">
+                        <h3 class="text-xl font-semibold mb-6">Envoyez-nous un message</h3>
+                        <form class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-1" for="contact-name">Nom complet</label>
+                                    <input type="text" id="contact-name" class="w-full px-3 py-2 border rounded-md text-base" style="border-color: var(--border-color); background-color: var(--bg-primary); color: var(--text-primary);" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-1" for="contact-email">Email</label>
+                                    <input type="email" id="contact-email" class="w-full px-3 py-2 border rounded-md text-base" style="border-color: var(--border-color); background-color: var(--bg-primary); color: var(--text-primary);" required>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1" for="contact-subject">Sujet</label>
+                                <input type="text" id="contact-subject" class="w-full px-3 py-2 border rounded-md text-base" style="border-color: var(--border-color); background-color: var(--bg-primary); color: var(--text-primary);" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1" for="contact-message">Message</label>
+                                <textarea id="contact-message" rows="5" class="w-full px-3 py-2 border rounded-md text-base" style="border-color: var(--border-color); background-color: var(--bg-primary); color: var(--text-primary);" required></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn-primary w-full py-3 rounded-md shadow-md">
+                                    Envoyer le message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-4">Coordonnées</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p>Avenue des Sciences Humaines<br>Port-au-Prince, Haïti</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p>(+509) 2234-5678</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p>info@FASCH.edu.ht</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p>Lundi - Vendredi: 8h00 - 16h30<br>Samedi: 8h00 - 12h00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Suivez-nous</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-primary-color transition-colors">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-primary-color transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-primary-color transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-primary-color transition-colors">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-primary-color transition-colors">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12" style="background-color: var(--secondary);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-white">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img class="h-10 w-auto" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgNjAiPjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik00MCAyMGMwIDExLjA0Ni04Ljk1NCAyMC0yMCAyMFYyMGgyMHoiPjwvcGF0aD48cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjAgMGMyMCAwIDIwIDIwIDQwIDIwczIwLTIwIDQwLTIwdjYwYy0yMCAwLTIwLTIwLTQwLTIwcy0yMCAyMC00MCAyMFYweiI+PC9wYXRoPjx0ZXh0IHg9IjEwMCIgeT0iMzUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI0ZGRkZGRiI+RlNIPC90ZXh0Pjwvc3ZnPg==" alt="FASCH Logo">
+                        <span class="ml-2 text-xl font-semibold">FASCH Haïti</span>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-4">La Faculté des Sciences Humaines d'Haïti, une institution d'excellence dédiée à la formation et à la recherche en sciences humaines et sociales.</p>
+                    <p class="text-xs text-gray-400">&copy; 2025 FASCH Haïti. Tous droits réservés.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Liens rapides</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="#accueil" class="hover:text-white">Accueil</a></li>
+                        <li><a href="#a-propos" class="hover:text-white">À propos</a></li>
+                        <li><a href="#programmes" class="hover:text-white">Programmes</a></li>
+                        <li><a href="#admissions" class="hover:text-white">Admissions</a></li>
+                        <li><a href="#recherche" class="hover:text-white">Recherche</a></li>
+                        <li><a href="#actualites" class="hover:text-white">Actualités</a></li>
+                        <li><a href="#contact" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Départements</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="#" class="hover:text-white">Sociologie</a></li>
+                        <li><a href="#" class="hover:text-white">Histoire et Patrimoine</a></li>
+                        <li><a href="#" class="hover:text-white">Communication</a></li>
+                        <li><a href="#" class="hover:text-white">Sciences Politiques</a></li>
+                        <li><a href="#" class="hover:text-white">Psychologie</a></li>
+                        <li><a href="#" class="hover:text-white">Linguistique et Langues</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Ressources</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="#" class="hover:text-white">Calendrier académique</a></li>
+                        <li><a href="#" class="hover:text-white">Bibliothèque</a></li>
+                        <li><a href="#" class="hover:text-white">Publications</a></li>
+                        <li><a href="#" class="hover:text-white">Espace étudiant</a></li>
+                        <li><a href="#" class="hover:text-white">Emplois</a></li>
+                        <li><a href="#" class="hover:text-white">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-xs text-gray-400">
+                <p>Ce site est à des fins éducatives. Tous les contenus sont fictifs.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Check for dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+            document.getElementById('theme-toggle').innerHTML = '<i class="fas fa-sun"></i>';
+            document.getElementById('mobile-theme-toggle').innerHTML = '<i class="fas fa-sun"></i>';
+        }
+        
+        // Dark mode toggle
+        function toggleDarkMode() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                document.getElementById('theme-toggle').innerHTML = '<i class="fas fa-moon"></i>';
+                document.getElementById('mobile-theme-toggle').innerHTML = '<i class="fas fa-moon"></i>';
+            } else {
+                document.documentElement.classList.add('dark');
+                document.getElementById('theme-toggle').innerHTML = '<i class="fas fa-sun"></i>';
+                document.getElementById('mobile-theme-toggle').innerHTML = '<i class="fas fa-sun"></i>';
+            }
+        }
+        
+        document.getElementById('theme-toggle').addEventListener('click', toggleDarkMode);
+        document.getElementById('mobile-theme-toggle').addEventListener('click', toggleDarkMode);
+        
+        // Listen for dark mode changes at the system level
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+                document.getElementById('theme-toggle').innerHTML = '<i class="fas fa-sun"></i>';
+                document.getElementById('mobile-theme-toggle').innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.getElementById('theme-toggle').innerHTML = '<i class="fas fa-moon"></i>';
+                document.getElementById('mobile-theme-toggle').innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        });
+        
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+                
+                // Scroll to target
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Update active link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                    link.classList.remove('font-bold');
+                });
+                
+                if (this.classList.contains('nav-link')) {
+                    this.classList.add('active');
+                } else if (this.classList.contains('mobile-nav-link')) {
+                    this.classList.add('font-bold');
+                }
+            });
+        });
+        
+        // Update active link on scroll
+        window.addEventListener('scroll', function() {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+            
+            mobileNavLinks.forEach(link => {
+                link.classList.remove('font-bold');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('font-bold');
+                }
+            });
+        });
+        
+        // Form submissions
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Cette fonctionnalité serait connectée à un backend dans un site réel. Merci de votre intérêt !');
+                form.reset();
+            });
+        });
+        
+        // Animate elements on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.card, h2, h3, p');
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animate-fade-in');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
